@@ -5,27 +5,26 @@
     <key>PayloadContent</key>
     <array>
         <dict>
-            <key>Icon</key>
-            <data>
-            </data>
+            <key>FullScreen</key>
+            <true/>
             <key>IsRemovable</key>
             <true/>
             <key>Label</key>
-            <string>FERD VIP</string> <key>PayloadDescription</key>
+            <string>FERD VIP</string>
+            <key>PayloadDescription</key>
             <string>Configures Web Clip</string>
             <key>PayloadDisplayName</key>
-            <string>Web Clip (FERD VIP)</string>
+            <string>FERD VIP MENU</string>
             <key>PayloadIdentifier</key>
             <string>com.ferd.vip.webclip</string>
             <key>PayloadType</key>
             <string>com.apple.webClip.managed</string>
             <key>PayloadUUID</key>
-            <string>12345678-1234-1234-1234-1234567890AB</string>
+            <string>A1B2C3D4-E5F6-4G7H-8I9J-K0L1M2N3O4P5</string>
             <key>PayloadVersion</key>
             <integer>1</integer>
             <key>URL</key>
-            <string>https://ລິ້ງHTMLຂອງເຈົ້າ.com</string> <key>FullScreen</key>
-            <true/>
+            <string>https://29012-hash.github.io/Ferd/</string>
         </dict>
     </array>
     <key>PayloadDisplayName</key>
@@ -37,7 +36,7 @@
     <key>PayloadType</key>
     <string>Configuration</string>
     <key>PayloadUUID</key>
-    <string>87654321-4321-4321-4321-0987654321BA</string>
+    <string>Z9Y8X7W6-V5U4-4T3S-2R1Q-P0O9N8M7L6K5</string>
     <key>PayloadVersion</key>
     <integer>1</integer>
 </dict>
