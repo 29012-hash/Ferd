@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadContent</key>
+    <array>
+        <dict>
+            <key>Icon</key>
+            <data>
+            </data>
+            <key>IsRemovable</key>
+            <true/>
+            <key>Label</key>
+            <string>FERD VIP</string> <key>PayloadDescription</key>
+            <string>Configures Web Clip</string>
+            <key>PayloadDisplayName</key>
+            <string>Web Clip (FERD VIP)</string>
+            <key>PayloadIdentifier</key>
+            <string>com.ferd.vip.webclip</string>
+            <key>PayloadType</key>
+            <string>com.apple.webClip.managed</string>
+            <key>PayloadUUID</key>
+            <string>12345678-1234-1234-1234-1234567890AB</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>URL</key>
+            <string>https://ລິ້ງHTMLຂອງເຈົ້າ.com</string> <key>FullScreen</key>
+            <true/>
+        </dict>
+    </array>
+    <key>PayloadDisplayName</key>
+    <string>FERD VIP INSTALLER</string>
+    <key>PayloadIdentifier</key>
+    <string>com.ferd.vip</string>
+    <key>PayloadRemovalDisallowed</key>
+    <false/>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>87654321-4321-4321-4321-0987654321BA</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+</dict>
+</plist>
