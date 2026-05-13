@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="lo"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><title>FERD VIP MENU</title><style>
+*{box-sizing:border-box;font-family:sans-serif;-webkit-tap-highlight-color:transparent}
+body{background:#000;color:#fff;margin:0;height:100vh;overflow:hidden;display:flex;justify-content:center;align-items:center}
+#fov{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:100px;height:100px;border:1.5px solid #ff4500;border-radius:50%;pointer-events:none;z-index:999;box-shadow:0 0 10px rgba(255,69,0,0.5)}
+#dragBtn{position:fixed;top:20%;right:20px;width:65px;height:65px;background:#ff4500;border-radius:50%;display:none;justify-content:center;align-items:center;font-size:10px;font-weight:bold;box-shadow:0 0 15px #ff4500;z-index:10000;cursor:move;text-align:center;border:2px solid #fff;color:#fff;line-height:1.2}
+.main{width:360px;height:260px;background:#0d0f12;display:flex;border-radius:12px;border:1px solid #1c1e22;z-index:10;box-shadow:0 10px 40px rgba(0,0,0,0.9)}
+.side{width:75px;background:#090a0c;display:flex;flex-direction:column;align-items:center;padding-top:10px;border-right:1px solid #1c1e22}
+.side-i{width:100%;padding:15px 0;color:#4e525b;font-size:9px;cursor:pointer;text-align:center;transition:0.2s}
+.side-i.active{color:#ff4500;background:rgba(255,69,0,0.05);border-right:3px solid #ff4500}
+.content{flex:1;padding:15px;display:none}.content.active{display:block}
+.header{font-size:13px;color:#ff4500;margin-bottom:15px;font-weight:bold;text-transform:uppercase}
+.opt{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:12px;color:#ccc}
+.sw{width:34px;height:18px;background:#1c1e22;border-radius:10px;position:relative;cursor:pointer;transition:0.3s}
+.sw::after{content:'';position:absolute;width:14px;height:14px;background:#4e525b;border-radius:50%;top:2px;left:2px;transition:0.2s}
+.sw.on{background:#ff4500} .sw.on::after{left:18px;background:#fff}
+input[type=range]{width:100%;accent-color:#ff4500;margin-top:5px}
+.btn-save{width:100%;margin-top:15px;background:#ff4500;border:none;color:#fff;padding:12px;border-radius:6px;font-weight:bold;cursor:pointer;text-transform:uppercase;font-size:12px}
+</style></head><body>
+<div id="fov"></div>
+<div id="dragBtn" onclick="turnOffDrag()">ຊ່ວຍລາກ<br>ON</div>
+<div class="main">
+    <div class="side">
+        <div class="side-i active" onclick="tab(0)">🎯<br>AIMBOT</div>
+        <div class="side-i" onclick="tab(1)">👁️<br>VISUALS</div>
+        <div class="side-i" onclick="tab(2)">⚙️<br>SETTINGS</div>
+    </div>
+    <div class="content active">
+        <div class="header">Aimbot</div>
+        <div class="opt"><span>ລັອກຫົວ 100%</span><div class="sw on"></div></div>
+        <div class="opt"><span>ຍິງຕົວຖືກຫົວ</span><div class="sw"></div></div>
+        <div class="opt"><span>ດູດຫົວ VIP</span><div class="sw"></div></div>
+        <div class="opt"><span>ຊ່ວຍລາກ</span><div class="sw" id="dragSw"></div></div>
+    </div>
+    <div class="content">
+        <div class="header">Visuals</div>
+        <div class="opt"><span>ເບິ່ງທະລຸ Wallhack</span><div class="sw"></div></div>
+        <div class="opt"><span>ເສົາສັນຍານ Antenna</span><div class="sw on"></div></div>
+    </div>
+    <div class="content">
+        <div class="header">Settings</div>
+        <div style="font-size:11px;color:#4e525b;margin-bottom:5px">ປັບຂະໜາດ FOV: <span id="val">100</span></div>
+        <input type="range" min="30" max="300" value="100" oninput="updateFOV(this.value)">
+        <button class="btn-save" onclick="window.location.href='potatso://'">SAVE & RUN</button>
+    </div>
+</div>
+<script>
+function tab(n){
+    document.querySelectorAll('.side-i').forEach((i,idx)=>i.classList.toggle('active',idx==n));
+    document.querySelectorAll('.content').forEach((c,idx)=>c.classList.toggle('active',idx==n));
+}
+function updateFOV(v){
+    const fov=document.getElementById('fov');
+    fov.style.width=fov.style.height=v+'px';
+    document.getElementById('val').innerText=v;
+}
+const dragSw = document.getElementById('dragSw');
+const dragBtn = document.getElementById('dragBtn');
+dragSw.onclick = function() {
+    this.classList.toggle('on');
+    dragBtn.style.display = this.classList.contains('on') ? 'flex' : 'none';
+};
+function turnOffDrag() {
+    dragBtn.innerText = "ຊ່ວຍລາກ\nOFF";
+    setTimeout(() => {
+        dragBtn.style.display = 'none';
+        dragSw.classList.remove('on');
+        dragBtn.innerHTML = "ຊ່ວຍລາກ<br>ON";
+    }, 300);
+}
+function dragElement(elm) {
+  var p1 = 0, p2 = 0, p3 = 0, p4 = 0;
+  elm.ontouchstart = (e) => {
+    p3 = e.touches[0].clientX; p4 = e.touches[0].clientY;
+    document.ontouchend = () => { document.ontouchend = null; document.ontouchmove = null; };
+    document.ontouchmove = (e) => {
+      p1 = p3 - e.touches[0].clientX; p2 = p4 - e.touches[0].clientY;
+      p3 = e.touches[0].clientX; p4 = e.touches[0].clientY;
+      elm.style.top = (elm.offsetTop - p2) + "px";
+      elm.style.left = (elm.offsetLeft - p1) + "px";
+    };
+  }
+}
+dragElement(dragBtn);
+document.querySelectorAll('.sw:not(#dragSw)').forEach(s=>s.onclick=()=>s.classList.toggle('on'));
+</script></body></html>
